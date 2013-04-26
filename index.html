@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="alohaShowcase"> 
+       <head>
+              <title>Aloha Editor Example</title>
+              <!-- load the Aloha Editor CSS styles -->
+              <link href="/Aloha-Editor/src/css/aloha-common-extra.css" rel="stylesheet" type="text/css" />
+              <!-- ALOHA SCRIPTS --> 
+              <!-- load the jQuery and require.js libraries -->
+              <script type="text/javascript" src="/Aloha-Editor/src/lib/require.js"></script>
+              <script type="text/javascript" src="/Aloha-Editor/src/lib/vendor/jquery-1.7.2.js"></script>
+ 
+              <!-- load the Aloha Editor core and some plugins -->
+              <script src="/Aloha-Editor/src/lib/aloha.js"
+                                   data-aloha-plugins="common/ui,
+                                                        common/format,
+                                                        common/list,
+                                                        common/link,
+                                                        common/highlighteditables">
+              </script>
+
+              <!-- ANGULAR SCRIPTS -->
+              <script src="js/lib/angular.js"></script>
+              <!-- CUSTOM SCRIPTS -->
+              <script src="js/app.js"></script>
+              <script src="js/controller.js"></script>
+              <script src="js/angular-aloha.js"></script>
+      
+              <link href="css/bootstrap.css" rel="stylesheet">
+              <link href="css/bootstrap-responsive.css" rel="stylesheet">
+              
+       </head>
+       <body>
+		    <div class="container" ng-controller="MainCtrl">
+              <h1 class="editable">Aloha Angular Showcase</h1>
+   
+              <input name="hello" ng-model="hello" type="text" />
+ 
+              <p>Angular-Ausgabe: {{hello}}</p>
+ 
+              <div aloha-editor aloha-active="active">
+                     <p>This is an editable div container.</p>
+                     <p>Follow us on <a href="http://twitter.com/alohaeditor">Twitter</a>.</p>
+                     <ul>
+                            <li>list item one</li>
+                            <li>list item two</li>
+                     </ul>
+              </div>
+ 
+              <p>Use Aloha Editor your existing textarea elements:</p>
+          	</div>
+       </body>
+</html>
