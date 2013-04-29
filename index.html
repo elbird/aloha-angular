@@ -31,13 +31,13 @@
        </head>
        <body>
 		    <div class="container" ng-controller="MainCtrl">
-              <h1 class="editable">Aloha Angular Showcase</h1>
+              <h1 aloha-editor aloha-active="active">Aloha Angular Showcase</h1>
    
               <input name="hello" ng-model="hello" type="text" />
  
               <p>Angular-Ausgabe: {{hello}}</p>
  
-              <div aloha-editor aloha-active="active">
+              <div id="test" class="test" aloha-editor aloha-active="active" aloha-formats="alohaFormats">
                      <p>This is an editable div container.</p>
                      <p>Follow us on <a href="http://twitter.com/alohaeditor">Twitter</a>.</p>
                      <ul>
@@ -45,6 +45,7 @@
                             <li>list item two</li>
                      </ul>
               </div>
+              <button class="btn" ng-class="classActive" ng-click="toggleAloha()">Toggle Aloha</button>
  
               <p>Use Aloha Editor your existing textarea elements:</p>
           	</div>
