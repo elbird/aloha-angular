@@ -1,0 +1,66 @@
+<h1>Aloha</h1>
+
+<h2 aloha aloha-active="active" aloha-config="alohaConfigHead" aloha-content="'using Aloha with Angular'"></h2>
+<div style="width:10%">&nbsp;</div>
+<div style="width:30%" class="pull-left">
+
+	<div aloha aloha-config="alohaConfigBody" aloha-content="couch.content" aloha-active="active" >
+	     
+	</div>
+	<button class="btn" ng-class="classActive" ng-click="toggleAloha()">Toggle Aloha</button>
+	<button class="btn" ng-click="save()">Save</button>
+	<h2>Awesome 2-way binding:</h2> 
+	<div ng-bind-html-unsafe="couch.content"></div>
+	</div>
+	
+</div>
+
+
+<div style="width:50%" class="pull-left">
+<pre>
+//HTML Template
+&lt;h2 aloha aloha-active="active" aloha-config="alohaConfigHead" aloha-content="'using Aloha with Angular'"&gt;&lt;/h2&gt;
+[...]
+&lt;div aloha  aloha-content="couch.content" aloha-config="alohaConfigBody" aloha-active="active"&gt;
+
+&lt;/div&gt;
+
+&lt;button class="btn" ng-class="classActive" ng-click="toggleAloha()"&gt;Toggle Aloha&lt;/button&gt;
+&lt;button class="btn" ng-click="save()"&gt;Save&lt;/button&gt;
+
+&lt;div ng-bind-html-unsafe="couch.content&gt;
+
+&lt;/div&gt;
+
+//Controller
+function AlohaCtrl($scope, CouchDbService) {
+	$scope.active = false;
+	$scope.alohaConfigHead = {
+		formats: ['strong', 'em']
+	};
+	$scope.alohaConfigBody = {
+		formats: ['strong', 'em', 'h3', 'p']
+	};
+	$scope.couch = CouchDbService.query({_id: "index"});
+	$scope.toggleAloha = function () {
+		$scope.active = $scope.active ? false : true;
+	};
+	$scope.save = function () {
+		$scope.couch.$save(function () {
+			$scope.couch = CouchDbService.query({_id: "index"});
+		});
+	};
+	$scope.$watch('active', function () {
+		$scope.classActive = $scope.active ? 'active' : '';
+	});
+}
+</pre>
+</div>
+<div style="width:10%">&nbsp;</div>
+<div>
+
+
+<div class="clearfix">
+&nbsp;
+
+</div>

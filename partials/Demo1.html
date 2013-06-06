@@ -1,0 +1,43 @@
+<h1>Demo 1</h1>
+<h2>Directives (Angular HTML Language Elements)</h2>
+<div style="width:10%">&nbsp;</div>
+<div style="width:30%" class="pull-left">
+
+
+
+<ul>
+	<li ng-repeat="listItem in list">
+		{{listItem.content}}
+	</li>
+</ul>
+</div>
+
+
+<div style="width:50%" class="pull-left">
+<pre>
+//HTML Template
+&lt;ul&gt;
+	&lt;li ng-repeat="listItem in list"&gt;
+		{{curly.open}}listItem.content{{curly.close}}
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+//Controller
+function Demo1Ctrl($scope) {
+	$scope.list = [
+		{ content: "ListItem 1"},
+		{ content: "ListItem 2"},
+		{ content: "ListItem 3"},
+		{ content: "ListItem 4"}
+	];
+}
+</pre>
+</div>
+<div style="width:10%">&nbsp;</div>
+<div>
+
+
+<div class="clearfix">
+<a class="btn" href="#/Demo/2">Demo 2</a>
+
+</div>

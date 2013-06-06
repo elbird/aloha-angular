@@ -1,0 +1,35 @@
+<h1>Demo 2</h1>
+
+<h2>{{dataBinding}}</h2>
+<div style="width:10%">&nbsp;</div>
+<div style="width:30%" class="pull-left">
+	<h3>Change something ...</h3>
+	<input type="text" ng-model="dataBinding">
+	<h3>and instantly see your changes everywhere</h3>
+	<span class="alert alert-info">{{dataBinding}}</span>
+</div>
+
+
+<div style="width:50%" class="pull-left">
+<pre>
+//HTML Template
+&lt;h3&gt;Change something ...&lt;/h3&gt;
+&lt;input type="text" ng-model="dataBinding"&gt;
+&lt;h3&gt;and instantly see your changes everywhere&lt;/h3&gt;
+&lt;span class="alert alert-info"&gt;{{curly.open}}dataBinding{{curly.close}}&lt;/span&gt;
+
+
+//Controller
+function Demo2Ctrl($scope) {
+	$scope.dataBinding = "Awesome 2-way data binding";
+}
+</pre>
+</div>
+<div style="width:10%">&nbsp;</div>
+<div>
+
+
+<div class="clearfix">
+<a class="btn" href="#/Demo/3">Demo 3</a>
+
+</div>

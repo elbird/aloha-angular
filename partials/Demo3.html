@@ -1,0 +1,49 @@
+<h1>Demo 3</h1>
+
+<h2>Adding Resources</h2>
+<div style="width:10%">&nbsp;</div>
+<div style="width:30%" class="pull-left">
+	<div ng-bind-html-unsafe="couch.content">
+
+	</div>
+	
+</div>
+
+
+<div style="width:50%" class="pull-left">
+<pre>
+//HTML Template
+&lt;div ng-bind-html-unsafe="couch.content&gt;
+
+&lt;/div&gt;
+
+//Controller
+function Demo3Ctrl($scope, CouchDbService) {
+	$scope.couch = CouchDbService.query({_id: "index"});
+}
+
+//CouchDbService
+angular.module('couchDb', ['ngResource'])
+.factory('CouchDbService', function($resource){
+	var Couch = $resource('/couchdb/aloha-angular/:_id', {
+			_id: '@_id'
+		}, {
+			'query':  {
+				method:'GET'
+			},
+			'save': {
+				method: 'PUT'
+			}
+		});
+  	return Couch;
+});
+</pre>
+</div>
+<div style="width:10%">&nbsp;</div>
+<div>
+
+
+<div class="clearfix">
+<a class="btn" href="#/Demo/Aloha">Aloha Directive</a>
+
+</div>
